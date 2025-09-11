@@ -105,7 +105,11 @@ blob_fixups: blob_fixups_user_type = {
        'vendor/etc/media_codecs_taro.xml',
        'vendor/etc/media_codecs_ukee.xml',
     ): blob_fixup()
-        .regex_replace('.+media_codecs_(google_audio|google_c2|google_telephony|vendor_audio).+\n', ''),
+        .regex_replace('.+media_codecs_(google_audio|google_c2|google_telephony|vendor_audio).+\n', '')
+        .regex_replace(
+           r'(<Include href="media_codecs_c2_audio\.xml"\s*/>)',
+           r'\1\n    <Include href="media_codecs_dolby_audio.xml" />',
+        ),
     'vendor/lib64/vendor.libdpmframework.so': blob_fixup()
         .add_needed('libhidlbase_shim.so'),
         ('vendor/lib/c2.dolby.avc.dec.so', 'vendor/lib/c2.dolby.avc.sec.dec.so', 'vendor/lib/c2.dolby.hevc.dec.so', 'vendor/lib/c2.dolby.hevc.sec.dec.so'): blob_fixup()
