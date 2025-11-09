@@ -970,7 +970,7 @@ vendor/lib64/mediadrm/libwvdrmengine.so
 vendor/bin/cnss-daemon
 vendor/etc/init/init.vendor.wlan.rc
 
-# WiFi Display (system) - from dada OS2.0.217.0.WOCMIXM
+# WiFi Display (system) - from dada OS2.0.227.0.WOCMIXM
 system/framework/WfdCommon.jar;BOOT_JAR|76fab5ed43206989057284fa26e8b894f1da102f
 system_ext/bin/wfdservice64|34851904d02d11d3cfebbc7b8745a9444ba3e7c5
 system_ext/etc/init/wfdservice.rc|907def8565d8f91f531ca7dfad880af05d540b0c
