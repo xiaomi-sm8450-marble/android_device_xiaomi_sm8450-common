@@ -87,12 +87,12 @@ BOARD_KERNEL_PAGESIZE    := 4096
 BOARD_KERNEL_IMAGE_NAME := Image
 
 TARGET_KERNEL_ADDITIONAL_FLAGS := TARGET_PRODUCT=$(PRODUCT_DEVICE)
-TARGET_KERNEL_SOURCE := kernel/xiaomi/marble
+TARGET_KERNEL_SOURCE := kernel/xiaomi/sm8450
 TARGET_KERNEL_CONFIG := \
     gki_defconfig \
     vendor/waipio_GKI.config \
-    vendor/custom.config \
-    vendor/marble_GKI.config \
+    vendor/xiaomi_GKI.config \
+    vendor/$(PRODUCT_DEVICE)_GKI.config \
     vendor/debugfs.config
 
 BOARD_BOOT_HEADER_VERSION := 4
@@ -124,7 +124,7 @@ BOOT_KERNEL_MODULES += $(first_stage_modules) $(second_stage_modules)
 BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE := $(TARGET_KERNEL_SOURCE)/modules.vendor_blocklist.msm.waipio
 BOARD_VENDOR_RAMDISK_KERNEL_MODULES_BLOCKLIST_FILE := $(BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE)
 
-TARGET_KERNEL_EXT_MODULE_ROOT := kernel/xiaomi/marble-modules
+TARGET_KERNEL_EXT_MODULE_ROOT := kernel/xiaomi/sm8450-modules
 TARGET_KERNEL_EXT_MODULES := \
 	qcom/opensource/mmrm-driver \
 	qcom/opensource/audio-kernel \
@@ -142,7 +142,8 @@ TARGET_KERNEL_EXT_MODULES := \
 	qcom/opensource/display-drivers/msm \
 	qcom/opensource/eva-kernel \
 	qcom/opensource/video-driver \
-	qcom/opensource/wlan/qcacld-3.0/.qca6490
+	qcom/opensource/wlan/qcacld-3.0/.qca6490 \
+	qcom/opensource/wlan/qcacld-3.0/.qca6750
 
 # Metadata
 BOARD_USES_METADATA_PARTITION := true
